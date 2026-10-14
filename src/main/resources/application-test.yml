@@ -1,0 +1,162 @@
+resilience4j.retry:
+     retryAspectOrder: 1
+     configs:
+          default:
+
+               maxAttempts: 3
+               waitDuration: 3s
+               retryExceptions:
+                    - org.springframework.web.client.ResourceAccessException
+                    - com.anseong.core.domain.client.common.exception.AuthorizationFailedException
+                    - java.io.IOException
+
+     instances:
+          certification:
+               baseConfig: default
+               waitDuration: 2s
+               retryExceptions:
+                    - com.anseong.core.domain.client.certification.exception.CertificationFailedException
+
+          convertMedia:
+               baseConfig: default
+               retryExceptions:
+                    - com.anseong.core.domain.client.convert.media.exception.ConvertMediaFailedException
+
+          location:
+               baseConfig: default
+               waitDuration: 1s
+               retryExceptions:
+                    - com.anseong.core.domain.client.location.exception.LocationLoadFailedException
+
+          messanger:
+               baseConfig: default
+               retryExceptions:
+                    - com.anseong.core.domain.client.messanger.exception.MessangerSendFailedException
+
+          notification:
+               baseConfig: default
+               retryExceptions:
+                    - com.anseong.core.domain.client.notificationn.exception.BatchImportTokenFailedException
+                    - com.anseong.core.domain.client.notificationn.exception.NotificationFailedException
+
+          payment:
+               baseConfig: default
+               waitDuration: 2s
+               enableExponentialBackoff: true
+               exponentialBackoffMultiplier: 2
+               retryExceptions:
+                    - com.anseong.core.domain.client.payment.exception.PaymentFailedException
+                    - com.anseong.core.domain.client.payment.exception.SchedulePaymentFailedException
+
+          schedule:
+               baseConfig: default
+               retryExceptions:
+                    - com.anseong.core.domain.client.schedule.exception.ScheduleTaskFailedException
+
+server:
+     http2:
+          enabled: true
+
+     port: 8181
+
+logging:
+     charset:
+          console: UTF-8
+
+     level:
+          com:
+               anseong: DEBUG
+          org:
+               springframework:
+                    jdbc:
+                         core:
+                              JdbcTemplate: DEBUG
+                              StatementCreatorUtils: TRACE
+                    core:
+                         LocalVariableTableParameterNameDiscoverer: error
+
+management:
+     endpoints:
+          web:
+               base-path: /check
+
+spring:
+     threads:
+          virtual:
+               enabled: true
+     h2:
+          console:
+               enabled: true
+     output:
+          ansi:
+               enabled: always
+     config:
+          activate:
+               on-profile: test
+     devtools:
+          restart:
+               enabled: true
+          livereload:
+               enabled: true
+
+     datasource:
+          master:
+               jdbc-url: ${TEST_MASTER_DB_URL}
+               username: ${TEST_MASTER_DB_USERNAME}
+               password: ${TEST_MASTER_DB_PASSWORD}
+               # driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+               driver-class-name: org.postgresql.Driver
+               maximum-pool-size: 10
+               max-lifetime: 1800000
+
+          replica:
+               jdbc-url: ${TEST_REPLICA_DB_URL}
+               username: ${TEST_REPLICA_DB_USERNAME}
+               password: ${TEST_REPLICA_DB_PASSWORD}
+               # driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+               driver-class-name: org.postgresql.Driver
+               maximum-pool-size: 152
+               max-lifetime: 1800000
+
+     jpa:
+          open-in-view: false
+          hibernate:
+               ddl-auto: none
+          properties:
+               hibernate:
+                    default_schema: anseong_food
+                    enable_lazy_load_no_trans: true
+                    default_batch_fetch_size: 100
+                    # show_sql: true
+                    # format_sql: true
+                    jdbc:
+                         batch_size: 100
+                    query:
+                         in_clause_parameter_padding: true
+
+     data:
+          redis:
+               host: ${TEST_REDIS_HOST}
+               port: 6379
+     mvc:
+          servlet:
+               load-on-startup: 1
+
+app:
+     token-secret: ${CEO_TOKEN_SECRET}
+
+api:
+     iamport:
+          key: ${IAMPORT_KEY}
+          secret: ${IAMPORT_SECRET}
+     aws:
+          access_key: ${AWS_ACCESS_KEY}
+          secret_key: ${AWS_SECRET_KEY}
+     naver:
+          client_id: ${NAVER_CLIENT_ID}
+          client_secret: ${NAVER_CLIENT_SECRET}
+          access_key: ${NAVER_ACCESS_KEY}
+          secret_key: ${NAVER_SECRET_KEY}
+          alimTalk_id: ${NAVER_ALIMTALK_ID}
+          sms_id: ${NAVER_SMS_ID}
+
