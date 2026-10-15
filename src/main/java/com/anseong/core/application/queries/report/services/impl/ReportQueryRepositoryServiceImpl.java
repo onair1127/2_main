@@ -22,13 +22,13 @@ import com.anseong.core.domain.model.tag.response.TagResponse;
 @Service
 @Transactional(readOnly = true)
 @ReplicaDatasourceSemaphore
-public class ReportQueryRepositoryServiceImpl implements ReportImageQueryRepositoryService {
+class ReportQueryRepositoryServiceImpl implements ReportImageQueryRepositoryService {
 
      private final ReportImageQueryRepository reportImageQueryRepository;
      private final MultipleImageQueryRepository multipleImageQueryRepository;
      private final TagQueryRepository tagQueryRepository;
 
-     public ReportQueryRepositoryServiceImpl(
+     ReportQueryRepositoryServiceImpl(
           ReportImageQueryRepository reportImageQueryRepository
           , MultipleImageQueryRepository multipleImageQueryRepository
           , TagQueryRepository tagQueryRepository

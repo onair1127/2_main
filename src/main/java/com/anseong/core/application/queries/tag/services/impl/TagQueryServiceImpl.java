@@ -10,11 +10,11 @@ import com.anseong.core.application.queries.tag.services.TagQueryService;
 import com.anseong.core.domain.model.user.UserId;
 
 @Service
-public class TagQueryServiceImpl implements TagQueryService {
+class TagQueryServiceImpl implements TagQueryService {
 
      private final TagQueryRepositoryService tagQueryRepositoryService;
 
-     public TagQueryServiceImpl(TagQueryRepositoryService tagQueryRepositoryService) {
+     TagQueryServiceImpl(TagQueryRepositoryService tagQueryRepositoryService) {
           this.tagQueryRepositoryService = tagQueryRepositoryService;
      }
 

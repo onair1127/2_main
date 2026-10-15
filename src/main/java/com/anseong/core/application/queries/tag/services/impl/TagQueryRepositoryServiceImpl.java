@@ -13,11 +13,11 @@ import com.anseong.core.domain.model.user.UserId;
 @Service
 @Transactional(readOnly = true)
 @ReplicaDatasourceSemaphore
-public class TagQueryRepositoryServiceImpl implements TagQueryRepositoryService {
+class TagQueryRepositoryServiceImpl implements TagQueryRepositoryService {
 
      private final TagQueryRepository tagQueryRepository;
 
-     public TagQueryRepositoryServiceImpl(TagQueryRepository tagQueryRepository) {
+     TagQueryRepositoryServiceImpl(TagQueryRepository tagQueryRepository) {
           this.tagQueryRepository = tagQueryRepository;
      }
 

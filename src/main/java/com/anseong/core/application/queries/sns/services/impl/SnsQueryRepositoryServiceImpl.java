@@ -15,11 +15,11 @@ import com.anseong.core.domain.model.user.UserId;
 @Service
 @Transactional(readOnly = true)
 @ReplicaDatasourceSemaphore
-public class SnsQueryRepositoryServiceImpl implements SnsQueryRepositoryService {
+class SnsQueryRepositoryServiceImpl implements SnsQueryRepositoryService {
 
      private final SnsQueryRepository snsQueryRepository;
 
-     public SnsQueryRepositoryServiceImpl(SnsQueryRepository snsQueryRepository) {
+     SnsQueryRepositoryServiceImpl(SnsQueryRepository snsQueryRepository) {
           this.snsQueryRepository = snsQueryRepository;
      }
 

@@ -29,7 +29,7 @@ import com.anseong.core.domain.model.tag.repository.TagCache;
 import com.anseong.core.domain.model.user.UserId;
 
 @Service
-public class ImageQueryServiceImpl implements ImageQueryService {
+class ImageQueryServiceImpl implements ImageQueryService {
 
      private final ImageQueryRepositoryService imageQueryRepositoryService;
      private final StoreQueryRepositoryService storeQueryRepositoryService;
@@ -40,7 +40,7 @@ public class ImageQueryServiceImpl implements ImageQueryService {
 
      private final AsyncTaskExecutor virtualTaskExecutor;
 
-     public ImageQueryServiceImpl(
+     ImageQueryServiceImpl(
                ImageQueryRepositoryService imageQueryRepositoryService,
                StoreQueryRepositoryService storeQueryRepositoryService,
                LocationClient locationClient,

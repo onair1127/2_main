@@ -27,6 +27,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 class PaymentClientFactory implements PaymentClient {
 
      private final Map<PaymentPlatform, InternalPaymentClient> clients;
+     private final PaymentPlatform DEFAULT_PLATFORM = PaymentPlatform.IAMPORT;
 
      PaymentClientFactory(List<InternalPaymentClient> paymentClients) {
           this.clients = paymentClients.stream()
@@ -37,6 +38,9 @@ class PaymentClientFactory implements PaymentClient {
      }
 
      private InternalPaymentClient getClient(PaymentPlatform platform) {
+          if (platform == null)
+               platform = DEFAULT_PLATFORM;
+
           return clients.get(platform);
      }
 

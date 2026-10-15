@@ -15,12 +15,12 @@ import com.anseong.core.domain.model.user.exception.EventAlreadyRegisteredExcept
 @Service
 @Transactional
 @MasterDatasourceSemaphore
-public class EventCommandRepositoryServiceImpl implements EventCommandRepositoryService {
+class EventCommandRepositoryServiceImpl implements EventCommandRepositoryService {
 
      private final EventCommandRepository eventCommandRepository;
      private final EventQueryRepository eventQueryRepository;
 
-     public EventCommandRepositoryServiceImpl(
+     EventCommandRepositoryServiceImpl(
           EventCommandRepository eventCommandRepository,
           EventQueryRepository eventQueryRepository
      ) {

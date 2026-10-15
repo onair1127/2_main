@@ -1,8 +1,7 @@
 resilience4j.retry:
-     retryAspectOrder: 1
+     retryAspectOrder: 101
      configs:
           default:
-
                maxAttempts: 3
                waitDuration: 3s
                retryExceptions:
@@ -52,6 +51,24 @@ resilience4j.retry:
                baseConfig: default
                retryExceptions:
                     - com.anseong.core.domain.client.schedule.exception.ScheduleTaskFailedException
+
+resilience4j.circuitbreaker:
+     circuitBreakerAspectOrder: 102
+     configs:
+          default:
+               slidingWindowSize: 10
+               failureRateThreshold: 50
+               waitDurationInOpenState: 10000
+               permittedNumberOfCallsInHalfOpenState: 3
+               eventConsumerBufferSize: 10
+               registerHealthIndicator: false
+
+     instances:
+          payment:
+               baseConfig: default
+
+          messanger:
+               baseConfig: default
 
 server:
      http2:

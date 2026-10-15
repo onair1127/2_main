@@ -22,14 +22,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 @Service
-public class BoardCommandServiceImpl implements BoardCommandService {
+class BoardCommandServiceImpl implements BoardCommandService {
 
      private final UserCache userCache;
      private final ConvertMediaClient convertMediaClient;
      private final NotificationClient notificationClient;
      private final BoardCommandRepositoryService boardCommandRepositoryService;
 
-     public BoardCommandServiceImpl(
+     BoardCommandServiceImpl(
           UserCache userCache,
           ConvertMediaClient convertMediaClient,
           NotificationClient notificationClient,

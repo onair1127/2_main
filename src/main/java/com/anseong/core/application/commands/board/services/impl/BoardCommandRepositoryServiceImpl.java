@@ -18,12 +18,12 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 @MasterDatasourceSemaphore
-public class BoardCommandRepositoryServiceImpl implements BoardCommandRepositoryService {
+class BoardCommandRepositoryServiceImpl implements BoardCommandRepositoryService {
 
      private final BoardCommandRepository boardCommandRepository;
      private final BoardStoreCommandRepository boardStoreCommandRepository;
 
-     public BoardCommandRepositoryServiceImpl(
+     BoardCommandRepositoryServiceImpl(
           BoardCommandRepository boardCommandRepository,
           BoardStoreCommandRepository boardStoreCommandRepository
      ) {

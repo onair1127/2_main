@@ -20,13 +20,13 @@ import com.anseong.core.domain.model.user.repository.UserCommandRepository;
 @Service
 @Transactional
 @MasterDatasourceSemaphore
-public class StoreCommandRepositoryServiceImpl implements StoreCommandRepositoryService {
+class StoreCommandRepositoryServiceImpl implements StoreCommandRepositoryService {
 
      private final StoreCommandRepository storeCommandRepository;
      private final SnsCommandRepository snsCommandRepository;
      private final UserCommandRepository userCommandRepository;
 
-     public StoreCommandRepositoryServiceImpl(
+     StoreCommandRepositoryServiceImpl(
           StoreCommandRepository storeCommandRepository,
           SnsCommandRepository snsCommandRepository,
           UserCommandRepository userCommandRepository

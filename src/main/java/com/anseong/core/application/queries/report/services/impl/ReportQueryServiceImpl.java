@@ -10,11 +10,11 @@ import com.anseong.core.application.queries.report.services.ReportImageQueryServ
 import com.anseong.core.domain.model.report.ReportImageId;
 
 @Service
-public class ReportQueryServiceImpl implements ReportImageQueryService {
+class ReportQueryServiceImpl implements ReportImageQueryService {
 
      private final ReportImageQueryRepositoryService reportQueryRepositoryService;
 
-     public ReportQueryServiceImpl(ReportImageQueryRepositoryService reportQueryRepositoryService) {
+     ReportQueryServiceImpl(ReportImageQueryRepositoryService reportQueryRepositoryService) {
           this.reportQueryRepositoryService = reportQueryRepositoryService;
      }
 

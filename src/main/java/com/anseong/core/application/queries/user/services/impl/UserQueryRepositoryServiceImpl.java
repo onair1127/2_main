@@ -12,11 +12,11 @@ import com.anseong.core.domain.model.user.response.UserResponse;
 @Service
 @Transactional(readOnly = true)
 @ReplicaDatasourceSemaphore
-public class UserQueryRepositoryServiceImpl implements UserQueryRepositoryService {
+class UserQueryRepositoryServiceImpl implements UserQueryRepositoryService {
 
      private final UserQueryRepository userQueryRepository;
 
-     public UserQueryRepositoryServiceImpl(UserQueryRepository userQueryRepository) {
+     UserQueryRepositoryServiceImpl(UserQueryRepository userQueryRepository) {
           this.userQueryRepository = userQueryRepository;
      }
 

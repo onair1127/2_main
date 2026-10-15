@@ -8,10 +8,10 @@ import com.anseong.core.application.queries.tag.services.TagQueryCacheService;
 import com.anseong.core.domain.model.tag.repository.TagCache;
 
 @Service
-public class TagQueryCacheServiceImpl implements TagQueryCacheService {
+class TagQueryCacheServiceImpl implements TagQueryCacheService {
      private final TagCache tagCache;
 
-     public TagQueryCacheServiceImpl(
+     TagQueryCacheServiceImpl(
           TagCache tagCache
      ) {
           this.tagCache = tagCache;

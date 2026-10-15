@@ -28,14 +28,14 @@ import com.anseong.core.domain.model.user.UserId;
 @Service
 @Transactional(readOnly = true)
 @ReplicaDatasourceSemaphore
-public class ImageQueryRepositoryServiceImpl implements ImageQueryRepositoryService {
+class ImageQueryRepositoryServiceImpl implements ImageQueryRepositoryService {
 
      private final ImageQueryRepository imageQueryRepository;
      private final SnsQueryRepository snsQueryRepository;
      private final TagQueryRepository tagQueryRepository;
      private final MultipleImageQueryRepository multipleImageQueryRepository;
 
-     public ImageQueryRepositoryServiceImpl(
+     ImageQueryRepositoryServiceImpl(
                ImageQueryRepository imageQueryRepository
                , SnsQueryRepository snsQueryRepository
                , TagQueryRepository tagQueryRepository

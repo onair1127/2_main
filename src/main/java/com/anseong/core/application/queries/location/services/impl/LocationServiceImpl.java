@@ -11,10 +11,10 @@ import com.anseong.core.domain.client.location.response.GeoCodeResponse;
 import io.jsonwebtoken.lang.Assert;
 
 @Service
-public class LocationServiceImpl implements LocationService {
+class LocationServiceImpl implements LocationService {
      private final LocationClient locationClient;
 
-	public LocationServiceImpl(LocationClient locationClient) {
+	LocationServiceImpl(LocationClient locationClient) {
           this.locationClient = locationClient;
      }
 
